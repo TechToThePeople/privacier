@@ -3,6 +3,12 @@
 require_once 'privacier.civix.php';
 use CRM_Privacier_ExtensionUtil as E;
 
+function privacier_civicrm_buildForm($formName, &$form) {
+  if ($formName == 'CRM_Export_Form_Select') {
+    CRM_Core_Resources::singleton()
+    ->addScript('CRM.$("#postal_mailing_export_postal_mailing_export").prop("checked",1)');
+  }
+}
 /**
  * Implements hook_civicrm_config().
  *
